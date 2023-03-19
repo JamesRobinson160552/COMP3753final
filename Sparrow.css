@@ -1,6 +1,11 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Rubik Iso', cursive;
+    list-style: none;
+    text-decoration: none;
 }
 
 title{
@@ -98,7 +103,7 @@ ul li a:hover{
     height: auto;
     margin: auto;
     color:aliceblue;
-    position: relative;
+    position:relative;
 }
 
 .content .par{
@@ -108,4 +113,12 @@ ul li a:hover{
     letter-spacing: 1.2px;
     line-height: 30px;
     
+}
+
+.content h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 45px;
+    padding-left: 20px;
+    margin:9%;
+    letter-spacing: 2px;
 }
