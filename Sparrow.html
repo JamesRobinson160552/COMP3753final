@@ -2,40 +2,255 @@
 <html lang = "en">
     <head>
         <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content = "IE=edge">
         <meta name = "viewport" content = "width-device-width, initial-scale=1.0">
+        <title>Sparrow Marketplace</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Rubik+Iso&display=swap" rel="stylesheet">
-        <title>Sparrow Marketplace</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel = "stylesheet" href = "Sparrow.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="script.js"></script>
+        <script src = "Sparrow.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     </head>
     <body>
-        <div class = "main">
-            <div class = "navigation">
-                <div class = "icon">
-                    <h2 class = "logo">Sparrow Marketplace</h2>
-                    <!--<img src = "sparrow.jpg" width = "125px">-->
-                </div>
-                <div class="menu">
-                    <ul>
-                        <li><a href = "">Home</a></li>
-                        <li><a href = "">Artpieces</a></li>
-                        <li><a href = "">Account</a></li>
-                        <li><a href = "">Seller Account</a></li>
-                    </ul>
-                </div>
+        <header>
+            <a href = "" class = "logo"><img src = "logo.png" alt = ""></a>
+            <ul class = "navigation">
+                <li><a href = "">Products</a></li>
+                <li><a href = "">Account</a></li>
+                <li><a href = "">Become A Seller</a></li>
+            </ul>
 
-                <div class="search">
-                    <input class = "srch" type = "search" name = "" placeholder="Search">
-                    <a href = ""> <button class = "btn">Search</button></a>
-                </div>
-                <div class = "content">
-                    <h1>Welcome</h1>
-                    <p class = "par">Find your next piece of art.</p>
+            <div class="search">
+                <input class = "srch" type = "search" name = "" placeholder = "Type to Search">
+                <a href = ""><button class = "btn">Search</button></a>
+            </div>
+
+            <div class="nav-icon"></div>
+                <a href = ""><i class='bx bxs-cart-alt'></i></box-icon></a>
+            </div>
+
+        </header>
+
+        <section class = "main-home">
+            <div class="main-text">
+                <h5>Art Collection</h5>
+                <p>Get your next piece of art,<br> and support the artists you know and love</p>
+
+                <a href="" class = "main-btn">Shop Now <i class='bx bx-chevrons-right'></i></a>
+
+
+
+                <div class="down-arrow">
+                    <a href = "popular" class = "down"><i class='bx bx-down-arrow-alt'></i></a>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section class="popular-products" id = "popular">
+            <div class="centre-text">
+                <h2>Pieces for Sale</h2>
+            </div>
+
+            <div class="products">
+                <div class="row">
+                    <img src = "im.jpeg" alt = "">
+                    <div class="product-text">
+                        <h5>Aesthetic Table Piece</h5>
+                        <p>4566</p>
+                    </div>
+                    <div class="likes">
+                        <i class='bx bxs-heart'></i>
+                    </div>
+
+                    <div class="price">
+                        <p>$70 - $150</p>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <img src = "im1.jpeg" alt = "">
+                    <div class="product-text">
+                        <h5>Aesthetic Table Piece</h5>
+                        <p>4566</p>
+                    </div>
+                    <div class="likes">
+                        <i class='bx bxs-heart'></i>
+                    </div>
+
+                    <div class="price">
+                        <p>$70 - $150</p>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <img src = "im2.jpeg" alt = "">
+                    <div class="product-text">
+                        <h5>Aesthetic Table Piece</h5>
+                        <p>4566</p>
+                    </div>
+                    <div class="likes">
+                        <i class='bx bxs-heart'></i>
+                    </div>
+
+                    <div class="price">
+                        <p>$70 - $150</p>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <img src = "im3.jpeg" alt = "">
+                    <div class="product-text">
+                        <h5>Aesthetic Table Piece</h5>
+                        <p>4566</p>
+                    </div>
+                    <div class="likes">
+                        <i class='bx bxs-heart'></i>
+                    </div>
+
+                    <div class="price">
+                        <p>$70 - $150</p>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <img src = "im4.jpeg" alt = "">
+                    <div class="product-text">
+                        <h5>Aesthetic Table Piece</h5>
+                        <p>4566</p>
+                    </div>
+                    <div class="likes">
+                        <i class='bx bxs-heart'></i>
+                    </div>
+
+                    <div class="price">
+                        <p>$70 - $150</p>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <img src = "im5.jpeg" alt = "">
+                    <div class="product-text">
+                        <h5>Aesthetic Table Piece</h5>
+                        <p>4566</p>
+                    </div>
+                    <div class="likes">
+                        <i class='bx bxs-heart'></i>
+                    </div>
+
+                    <div class="price">
+                        <p>$70 - $150</p>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <img src = "im6.jpeg" alt = "">
+                    <div class="product-text">
+                        <h5>Aesthetic Table Piece</h5>
+                        <p>4566</p>
+                    </div>
+                    <div class="likes">
+                        <i class='bx bxs-heart'></i>
+                    </div>
+
+                    <div class="price">
+                        <p>$70 - $150</p>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <img src = "im7.jpeg" alt = "">
+                    <div class="product-text">
+                        <h5>Aesthetic Table Piece</h5>
+                        <p>4566</p>
+                    </div>
+                    <div class="likes">
+                        <i class='bx bxs-heart'></i>
+                    </div>
+
+                    <div class="price">
+                        <p>$70 - $150</p>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <img src = "im8.jpeg" alt = "">
+                    <div class="product-text">
+                        <h5>Aesthetic Table Piece</h5>
+                        <p>4566</p>
+                    </div>
+                    <div class="likes">
+                        <i class='bx bxs-heart'></i>
+                    </div>
+
+                    <div class="price">
+                        <p>$70 - $150</p>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <img src = "im9.jpeg" alt = "">
+                    <div class="product-text">
+                        <h5>Aesthetic Table Piece</h5>
+                        <p>4566</p>
+                    </div>
+                    <div class="likes">
+                        <i class='bx bxs-heart'></i>
+                    </div>
+
+                    <div class="price">
+                        <p>$70 - $150</p>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <img src = "im10.jpeg" alt = "">
+                    <div class="product-text">
+                        <h5>Aesthetic Table Piece</h5>
+                        <p>4566</p>
+                    </div>
+                    <div class="likes">
+                        <i class='bx bxs-heart'></i>
+                    </div>
+
+                    <div class="price">
+                        <p>$70 - $150</p>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <img src = "im11.jpeg" alt = "">
+                    <div class="product-text">
+                        <h5>Aesthetic Table Piece</h5>
+                        <p>4566</p>
+                    </div>
+                    <div class="likes">
+                        <i class='bx bxs-heart'></i>
+                    </div>
+
+                    <div class="price">
+                        <p>$70 - $150</p>
+                    </div>
+
+                </div>
+  
+            </div>
+        </section>
+
+        
+
+
+
     </body>
 </html>

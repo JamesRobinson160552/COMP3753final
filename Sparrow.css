@@ -6,119 +6,204 @@
     font-family: 'Rubik Iso', cursive;
     list-style: none;
     text-decoration: none;
+    font-size: 10px;
+
 }
 
-title{
-    color: rgb(250, 250, 250);
-}
-
-
-.main{
+header{
+    position: fixed;
     width: 100%;
-    height: 50%;
-    background: rgba(0, 0, 0, 0.5) url(back2.jpg);
-    background-size: cover;
-    background-blend-mode: darken;
-    height: 50vh;
-}
-
-.menu{
-    width: 400px;
-    float: left;
-    height: 70px;
-}
-
-ul{
-    float: left;
+    top: 0;
+    right: 0;
+    z-index: 1000;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 15%;
+}
+
+.logo img{
+    max-width: 100px;
+    height:auto;
+    
+}
+
+.navigation{
+    display: flex;
+}
+
+.navigation a{
+    color: rgb(10, 3, 6);
+    font-size: 16px;
+    text-transform: capitalize;
+    padding: 10px;
+    font-weight: 400;
+    transition: all .42s ease;
+}
+
+.navigation a:hover{
+    color: rgb(32, 50, 119);
+}
+
+.nav-icon{
+    display: flex;
     align-items:center;
 }
 
-ul li{
-    list-style: none;
-    margin-left: 70px;
-    margin-top: 27px;
-    font-size: 20px;
+.nav-icon i{
+    margin-right: 20px;
+    color: rgb(43, 120, 182);
+    font-size: 30px;
+    font-weight: 400;
 }
 
-ul li a{
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
-    transition: 0.4 ease-in-out;
-}
-
-ul li a:hover{
-    color: blueviolet;
+.nav-icon i:hover{
+    transform: scale(1.1);  
+    color: rgb(230, 218, 52);
 }
 
 .search{
     width: 330px;
-    float:left;
-    margin-left:270px;
+    float: left;
+    margin-left: 260px;
 }
 
 .srch{
-    font-family: 'Times New Roman', Times, serif;
-    width:200px;
+    font-family: 'Rubik Iso', cursive;
+    width: 200px;
     height: 40px;
     background: transparent;
-    border: 1px solid #2e3bca;
+    border: 1px solid black;
     margin-top: 13px;
-    color:rgb(133, 173, 188);
+    color: rgb(2, 5, 8);
     border-right: none;
     font-size: 16px;
-    float:left;
+    float: left;
     padding: 10px;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
 }
 
 .btn{
-    width: 100px;
+    width: 100%;
     height: 40px;
-    background: #063a13;
-    border: 2px solid #732f5b;
+    background-color: black;
+    border: 1px solid blue;
     margin-top: 13px;
-    color:#2e3bca;
-    font-size: 14px;
+    color: blanchedalmond;
+    font-size: 16px;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
 
+}
+
+
+#menu-icon{
+    font-size: 35px;
+    z-index: 10000;
+    cursor: pointer;
+}
+
+section{
+    padding: 5% 10%;
 
 }
 
-.btn:focus{
-    outline:none;
+.main-home{
+    width: 100%;
+    height: 100vh;
+    background-image: url(back2.jpg);
+    background-position: center;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
 }
 
-.srch.focus{
-    outline: none;
+.main-text p{
+    font-size: 20px;
+    text-transform: capitalize;
+    line-height: 1.1;
+    font-weight: 600;
+    margin:6px 0 10px;
+
 }
 
-.content{
-    width: 1200px;
-    height: auto;
-    margin: auto;
-    color:aliceblue;
-    position:relative;
+.main-btn{
+    display: inline-block;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+    border: 1px solid #111;
+    padding: 12px 25px;
+    transition: all .42s ease;
 }
 
-.content .par{
-    padding: 20px;
-    padding-bottom: 25px;
-    font-family: 'Times New Roman', Times, serif;
-    letter-spacing: 1.2px;
-    line-height: 30px;
-    
+.main-text h5{
+    color: aqua;
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: 500;
 }
 
-.content h1{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 45px;
-    padding-left: 20px;
-    margin:9%;
-    letter-spacing: 2px;
+.down-arrow{
+    position: absolute;
+    top:85%;
+    right: 11%;
+
+}
+
+.down i{
+    font-size: 30px;
+    color:rgb(10, 3, 6);
+    border: 1px solid black;
+    border-radius: 12px 12px;
+}
+
+.centre-text h2{
+    color: black;
+    font-size: 30px;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.products{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, auto));
+    gap: 2rem;
+}
+
+.row{
+    position: relative;
+    transition: all .40s;
+
+}
+
+.row img{
+    width: 100%;
+    height:auto;
+    transition: all .40s;
+}
+.row img:hover{
+    transform: scale(0.9);
+}
+
+.product-text h5{
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    color: bisque;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    background-color: blanchedalmond;
+    padding: 3px 10px;
+    border-radius: 2px;
+}
+
+header.sticky{
+    background: #111;
+    padding: 20px 10px;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
 }
