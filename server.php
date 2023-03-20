@@ -1,5 +1,11 @@
 <?php
-$con = odbc_connect("comp3753-db-zjbr.cxbac3bydx0a.us-east-2.rds.amazonaws.com1", "Postgres", "123456789");
+$dbhost = 'comp3753-db-zjbr.cxbac3bydx0a.us-east-2.rds.amazonaws.com';
+$dbport = '5432';
+$dbname = 'COMP3753_DB_ZJBR';
+$User = "postgres";
+$Password =  "123456789";
+
+$con =  pg_connect("host={$dbhost} port={$dbport} dbname={$dbname} user={$User} password={$Password}");
 
 
 if(!$con)
@@ -12,25 +18,26 @@ else
     echo "im here";
 }
 
-$action = $_GET['action'];
+//$action = $_GET['action'];
 
-if ($action === 'getcustomers') //gets all customer data from customer table
-{
-    $odbc_statement = "SELECT MediumID FROM Medium;";
-}
+//if ($action === 'getcustomers') //gets all customer data from customer table
+//{
+    //$odbc_statement = "SELECT MediumID FROM Medium;";
+    $statement = "SELECT * FROM Public.\"Medium\"";
+//}
 
-$result = Odbc.Query($con, $odbc_statement); //all information is given to $result
+$result = pg_query($con, $statement); //all information is given to $result
 
 header('Content-Type: application/json; charset=utf-8');
 
 if ($result != null) 
 {
-    //while($row = $result->fetch_array(MYSQLI_ASSOC)) 
-    //{
-    //        $myArray[] = $row;
-    //}
-    //echo json_encode($myArray);
-    echo json_encode($result);
+    while($row = $result->fetch_array(MYSQLI_ASSOC)) 
+    {
+            $myArray[] = $row;
+    }
+    echo json_encode($myArray);
+    //echo json_encode($result);
 } 
 else 
 {
@@ -38,5 +45,5 @@ else
 }
 
 //close the connection
-$con->close();
+//$con->close();
 ?>
