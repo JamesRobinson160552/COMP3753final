@@ -32,25 +32,15 @@ header('Content-Type: application/json; charset=utf-8');
 
 if ($result != null) 
 {
-    //while($count < $result-1)
-    //{
-    //$arr = pg_fetch_array($result, 2, PGSQL_NUM);
-    while($arr = pg_fetch_array($result))
+    while($row = pg_fetch_array($result))
     {
-    echo "\n";
-    echo $arr[0];
-    echo $arr[1];
-    echo $arr[2];
-    echo "\n";
+        echo "\n";
+        echo $row[0];
+        echo $row[1];
+        echo $row[2];
+        echo "\n";
+        $arr[]  = $row;
     }
-
-
-    //while($row = $result->pg_fetch_array()) 
-    //{
-    //        $myArray[] = $row;
-   // }
-    //echo json_encode($myArray);
-    //echo json_encode($result);
 } 
 else 
 {
