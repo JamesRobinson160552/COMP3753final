@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang = "en">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content = "IE=edge">
         <meta name = "viewport" content = "width-device-width, initial-scale=1.0">
         <title>Sparrow Marketplace</title>
@@ -12,7 +12,14 @@
         <link rel = "stylesheet" href = "Sparrow.css">
         <script src = "Sparrow.js"></script>
         <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+        <!-- IMPORTS FROM JAMIE -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <!--------------------------->
         <script src="script.js"></script>
     </head>
     <body>
@@ -49,21 +56,20 @@
                 </div>
             </div>
         </section>
-        <div class = "container">
-            <h3>Customers:</h3>
-            <table class = "order-table">
-                <thead>
-                    <tr>
-                        <th>Full Name</th>
-                        <th>Email</th>
-                        <th>Phone Number</th>
-                        <th>Order Detail</th>
-                    </tr>
-                </thead>
-                <tbody id = "table_body">
-
-                </tbody>
-            </table>
+        <div class="container">
+        <table class='table table-bordered table-striped'>
+            <thead class='thead-dark'>
+                <tr>
+                    <th>Col1</th>
+                    <th>Col2</th>
+                    <th>Col3</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="table_body">
+                
+            </tbody>
+        </table>
         </div>
 
         <section class="popular-products" id = "popular">

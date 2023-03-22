@@ -207,31 +207,3 @@ header.sticky{
     padding: 20px 10px;
     box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
 }
-
-.order-table{
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 12px;
-    min-width: 400px;
-
-}
-
-.content-table tr{
-   background-color: black; 
-   color: rgb(255, 255, 255);
-   text-align: left;
-
-}
-
-.content-table th
-.content-table td{
-   padding: 12px 15px;
-   border: 1px solid black;
-
-
-}
-
-.content-table tbody tr{
-    border-bottom: 1px solid black;
-
-}

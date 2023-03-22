@@ -13,18 +13,15 @@ if(!$con)
     echo "not found";
     exit("not found");
 }
-else
+
+
+$action = $_GET['action'];
+
+if ($action === 'getcustomers') //gets all customer data from customer table
 {
-    echo "im here";
+    //$statement = "SELECT * FROM Public.\"Medium\"";
+    $statement = "SELECT \"MediumID\", \"Size\", \"Material\" FROM Public.\"Medium\"";
 }
-
-//$action = $_GET['action'];
-
-//if ($action === 'getcustomers') //gets all customer data from customer table
-//{
-    //$odbc_statement = "SELECT MediumID FROM Medium;";
-    $statement = "SELECT * FROM Public.\"Medium\"";
-//}
 
 $result = pg_query($con, $statement); //all information is given to $result
 
@@ -32,15 +29,17 @@ header('Content-Type: application/json; charset=utf-8');
 
 if ($result != null) 
 {
-    while($row = pg_fetch_array($result))
+    while($row = pg_fetch_assoc($result))
     {
-        echo "\n";
-        echo $row[0];
-        echo $row[1];
-        echo $row[2];
-        echo "\n";
+        //echo "\n";
+        //echo $row['MediumID'];
+        //echo $row['Size'];
+        //echo $row['Material'];
+        //echo "\n";
         $arr[]  = $row;
     }
+    //$arr = pg_fetch_results($result,1,1);
+    echo json_encode($arr);
 } 
 else 
 {
@@ -49,4 +48,5 @@ else
 
 //close the connection
 //$con->close();
+pg_close($con);
 ?>
