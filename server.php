@@ -17,6 +17,12 @@ if(!$con)
 
 $action = $_GET['action'];
 
+if ($action === 'getfeatured') //gets all customer data from customer table
+{
+    //$statement = "SELECT * FROM Public.\"Medium\"";
+    $statement = "SELECT \"Title\", \"Price\" FROM Public.\"Art\"";
+}
+
 if ($action === 'getcustomers') //gets all customer data from customer table
 {
     //$statement = "SELECT * FROM Public.\"Medium\"";
