@@ -6,7 +6,7 @@ $(document).ready(function() {
 
 function Data() {
     console.log("hello2");
-    $.get("DBserver.php?action=getcustomers", function(data)  
+    $.get("server.php?action=getcustomers", function(data)  
     {
 
         //iterate over the JSON response, building an HTML string
