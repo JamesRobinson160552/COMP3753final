@@ -19,9 +19,10 @@
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <!--------------------------->
+        <script src="script.js"></script>
     </head>
 
-    <body>
+    <body onload="LoadViewPage()">
         <header>
             <a href = "" class = "logo"><img src = "logo.png" alt = ""></a>
             <ul class = "navigation">
@@ -44,6 +45,18 @@
         <section class = "main-home">
             <div class="main-text">
                 <h5>This is a Product Page</h5>
+            </div>
+        </section>
+
+                <section class="popular-products" id = "popular">
+                    <div class="centre-text">
+                        <h2>Pieces for Sale</h2>
+                    </div>
+        
+                    <div class="products" id="featured1">
+                    </div>
+                </section>
+
                 
     </body>
 </html>

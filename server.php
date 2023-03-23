@@ -20,13 +20,18 @@ $action = $_GET['action'];
 if ($action === 'getfeatured') //gets all customer data from customer table
 {
     //$statement = "SELECT * FROM Public.\"Medium\"";
-    $statement = "SELECT \"Title\", \"Price\" FROM Public.\"Art\"";
+    $statement = "SELECT * FROM Public.\"Art\"";
 }
 
 if ($action === 'getcustomers') //gets all customer data from customer table
 {
     //$statement = "SELECT * FROM Public.\"Medium\"";
     $statement = "SELECT \"MediumID\", \"Size\", \"Material\" FROM Public.\"Medium\"";
+}
+
+if($action === 'productInfo')
+{
+    $statement = "SELECT * FROM Public.\"Art\" NATURAL JOIN Public.\"Artist\" WHERE \"ArtID\" = " . $_GET['ArtID'];
 }
 
 $result = pg_query($con, $statement); //all information is given to $result
