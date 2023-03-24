@@ -33,7 +33,7 @@ header{
 }
 
 .navigation a{
-    color: rgb(10, 3, 6);
+    color: rgb(94, 89, 91);
     font-size: 16px;
     text-transform: capitalize;
     padding: 10px;
@@ -42,25 +42,9 @@ header{
 }
 
 .navigation a:hover{
-    color: rgb(32, 50, 119);
+    color: rgb(192, 225, 236);
 }
 
-.nav-icon{
-    display: flex;
-    align-items:center;
-}
-
-.nav-icon i{
-    margin-right: 20px;
-    color: rgb(43, 120, 182);
-    font-size: 30px;
-    font-weight: 400;
-}
-
-.nav-icon i:hover{
-    transform: scale(1.1);  
-    color: rgb(230, 218, 52);
-}
 
 .search{
     width: 330px;
@@ -75,7 +59,7 @@ header{
     background: transparent;
     border: 1px solid black;
     margin-top: 13px;
-    color: rgb(2, 5, 8);
+    color: rgb(140, 159, 179);
     border-right: none;
     font-size: 16px;
     float: left;
@@ -87,10 +71,10 @@ header{
 .btn{
     width: 100%;
     height: 40px;
-    background-color: black;
-    border: 1px solid blue;
+    background-color: rgb(57, 67, 68);
+    border: 1px solid rgb(122, 122, 215);
     margin-top: 13px;
-    color: blanchedalmond;
+    color: rgb(179, 214, 240);
     font-size: 16px;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
@@ -131,35 +115,22 @@ section{
 
 .main-btn{
     display: inline-block;
-    color: black;
+    color: rgb(168, 156, 230);
     font-size: 16px;
     font-weight: 500;
     text-transform: capitalize;
-    border: 1px solid #111;
+    border: 1px solid #d4dff0;
     padding: 12px 25px;
     transition: all .42s ease;
 }
 
 .main-text h5{
-    color: aqua;
+    color: rgb(8, 4, 14);
     font-size: 20px;
     text-transform: capitalize;
     font-weight: 500;
 }
 
-.down-arrow{
-    position: absolute;
-    top:85%;
-    right: 11%;
-
-}
-
-.down i{
-    font-size: 30px;
-    color:rgb(10, 3, 6);
-    border: 1px solid black;
-    border-radius: 12px 12px;
-}
 
 .centre-text h2{
     color: black;
@@ -217,3 +188,61 @@ header.sticky{
     padding: 20px 10px;
     box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
 }
+
+.container{
+    width: 400px;
+    max-width: 400px;
+    margin:0;
+    height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    width:400px;
+    box-shadow: 0 0 40px black ;
+    border-radius: var(--boder-radius);
+    background: rgb(203, 198, 206);
+    
+}
+
+.container2{
+    width: 400px;
+    max-width: 400px;
+    margin:0;
+    height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    width:400px;
+    box-shadow: 0 0 40px black ;
+    border-radius: var(--boder-radius);
+    background: rgb(203, 198, 206);
+    
+}
+
+.form-input{
+    position: relative;
+    width:100%;
+    border-bottom:1px solid black;
+}
+
+.rem-forgot{
+    font-size: 14px;
+    color: rgb(38, 38, 34);
+    margin: 15px;
+    display:flex;
+    justify-content:space-evenly;
+}
+
+.rem-forgot label input{
+    accent-color: #161616;
+    margin-right: 3px;
+}
+
+.rem-forgot a{
+    color: gray;
+    text-decoration: none;
+}
+
+
