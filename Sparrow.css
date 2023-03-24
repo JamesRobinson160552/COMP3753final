@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    font-family: 'Rubik Iso', cursive;
+    font-family: 'Fasthand', cursive;
     list-style: none;
     text-decoration: none;
     font-size: 10px;
@@ -53,8 +53,8 @@ header{
 }
 
 .srch{
-    font-family: 'Rubik Iso', cursive;
-    width: 200px;
+    font-family: 'Fasthand', cursive;
+    width: 330px;
     height: 40px;
     background: transparent;
     border: 1px solid black;
@@ -130,6 +130,7 @@ section{
     text-transform: capitalize;
     font-weight: 500;
 }
+
 
 
 .centre-text h2{
