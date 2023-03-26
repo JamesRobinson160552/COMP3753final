@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <!--------------------------->
+        <script src="script.js"></script>
     </head>
 
     <body>
@@ -36,15 +37,19 @@
                 <form action = "" id = "register">
                     <h2 class = "title">Register</h2>
                     <div class="form-input"> 
-                        <input class = "form-input" type = "text" name = "" autofocus placeholder = "Enter email address">
+                        <input class = "form-input" id="email" type = "text" name = "" autofocus placeholder = "Enter email address">
                     </div>
                     <div class="form-input"> 
-                        <input class = "form-input" type = "password" name = "" placeholder = "Enter your password">
+                        <input class = "form-input" id="name" type = "text" name = "" autofocus placeholder = "Enter your name">
                     </div>
                     <div class="form-input"> 
-                        <input class = "form-input" type = "password" name = "" placeholder = "Re-enter your password">
+                        <input class = "form-input" id="password" type = "password" name = "" placeholder = "Enter your password">
                     </div>
-                    <button type = "Submit" class = "btn"><a href = "./Sparrow.html">Register</a></button>
+                    <div class="form-input"> 
+                        <input class = "form-input" id="password1" type = "password" name = "" placeholder = "Re-enter your password">
+                    </div>
+                    <!---<button type = "Submit" class = "btn"><a href = "./Sparrow.html">Register</a></button>-->
+                    <button type = "Submit" class = "btn"><a onclick="CreateUser()">Register</a></button>
                 </form>
             </div>
         </div>

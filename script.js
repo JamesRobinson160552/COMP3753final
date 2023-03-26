@@ -46,7 +46,7 @@ function ViewItemPage(ArtID, MediumID)
     $.get("server.php?action=productInfo&ArtID=" + ArtID, function(data)  {
         var html_string = "";
         html_string += "<div class=\"row\">"
-        //html_string += "<a onclick=\"ViewItemPage(" + data['ArtID'] + "); return false;\">"
+        html_string += "<a onclick=\"ViewItemPage(" + data['ArtID'] + "); return false;\">"
         html_string += "<img src = \"im.jpeg\" alt = \"\"></a>"
         html_string += "<div class=\"product-text\">"
         html_string += "<h5>"+data[0]['Title']+"</h5>"
@@ -93,4 +93,16 @@ function LoadViewPage()
     $("#featured1").html((sessionStorage.getItem('art')));
     $("#featured2").html((sessionStorage.getItem('medium')));
     //sessionStorage.setItem('art', "");
+}
+
+function CreateUser()
+{
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    var name = document.getElementById('name').value;
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'server.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send('email=' + encodeURIComponent(email) + '&password=' + encodeURIComponent(password) + '&name=' + encodeURIComponent(name));
 }
