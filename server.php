@@ -23,7 +23,7 @@ if ($action === 'getfeatured') //gets all customer data from customer table
     $statement = "SELECT * FROM Public.\"Art\"";
 }
 
-if ($action === 'getcustomers') //gets all customer data from customer table
+if ($action === 'productMedium') //gets all customer data from customer table
 {
     //$statement = "SELECT * FROM Public.\"Medium\"";
     $statement = "SELECT \"MediumID\", \"Size\", \"Material\" FROM Public.\"Medium\"";
@@ -31,7 +31,7 @@ if ($action === 'getcustomers') //gets all customer data from customer table
 
 if($action === 'productInfo')
 {
-    $statement = "SELECT * FROM Public.\"Art\" NATURAL JOIN Public.\"Artist\" WHERE \"ArtID\" = " . $_GET['ArtID'];
+    $statement = "SELECT * FROM Public.\"Art\" NATURAL JOIN Public.\"Artist\" art WHERE \"ArtID\" = " . $_GET['ArtID'];
 }
 
 $result = pg_query($con, $statement); //all information is given to $result
@@ -42,14 +42,9 @@ if ($result != null)
 {
     while($row = pg_fetch_assoc($result))
     {
-        //echo "\n";
-        //echo $row['MediumID'];
-        //echo $row['Size'];
-        //echo $row['Material'];
-        //echo "\n";
         $arr[]  = $row;
     }
-    //$arr = pg_fetch_results($result,1,1);
+    
     echo json_encode($arr);
 } 
 else 

@@ -15,7 +15,7 @@ function Data() {
         //html_string+="<tr><td>" + object['MediumID'] +"</td><td>"+ object['Size'] +"</td><td>"+ object['Material'] +"</td></tr>";
         //html_string+="<tr><td>" + object['Title'] +"</td><td>"+ object['Price'] +"</td></tr>";
         html_string += "<div class=\"row\">"
-        html_string += "<a onclick=\"ViewItemPage(" + object['ArtID'] + "); return false;\">"
+        html_string += "<a onclick=\"ViewItemPage(" + object['ArtID'] +","+ object['MediumID'] + "); return false;\">"
         html_string += "<img src = \"im.jpeg\" alt = \"\"></a>"
         html_string += "<div class=\"product-text\">"
         html_string += "<h5>"+object['Title']+"</h5>"
@@ -35,12 +35,14 @@ function Data() {
     });
 }
 
-function ViewItemPage(ArtID)
+function ViewItemPage(ArtID, MediumID)
 {
     sessionStorage.setItem('art', "");
+    sessionStorage.setItem('medium', "");
     
     //window.location.href("./ProductPage.html");
-    //console.log(ArtID);
+    console.log(ArtID);
+    //console.log(MediumID);
     $.get("server.php?action=productInfo&ArtID=" + ArtID, function(data)  {
         var html_string = "";
         html_string += "<div class=\"row\">"
@@ -60,13 +62,26 @@ function ViewItemPage(ArtID)
        /// $("#featured1").html(html_string);
         sessionStorage.setItem('art', html_string);
     });
-    console.log((sessionStorage.getItem('art')));
+
+    $.get("server.php?action=productMedium&MediumID=" + MediumID, function(data) {
+        var html_string = "";
+        //html_string += "<div class=\"row\">"
+        html_string += "<div class=\"mediumText\">"
+        html_string += "<h5>"+data[0]['Size']+" and made on "+data[0]['Material']+"</h5>"
+        //html_string += "<p>"+data[0]['Material']+"</p>"
+        html_string += "</div>"
+        console.log(html_string);
+        sessionStorage.setItem('medium', html_string)
+    });
+    //console.log((sessionStorage.getItem('art')));
+    //console.log((sessionStorage.getItem('medium')));
 
     waitForChange();
 }
 
 function waitForChange(){
-    if((sessionStorage.getItem('art')) === ""){
+    if((sessionStorage.getItem('art') === "") || (sessionStorage.getItem('medium') === ""))
+    {
         setTimeout(waitForChange, 50);
         return;
     }
@@ -76,5 +91,6 @@ function waitForChange(){
 function LoadViewPage()
 {
     $("#featured1").html((sessionStorage.getItem('art')));
+    $("#featured2").html((sessionStorage.getItem('medium')));
     //sessionStorage.setItem('art', "");
 }
