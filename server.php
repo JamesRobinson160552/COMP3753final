@@ -41,6 +41,12 @@ if($action === 'productInfo')
     $returnInformation = true;
 }
 
+if($action === 'getUser')
+{
+    $statement = "SELECT * FROM Public.\"User\" WHERE \"UserID\" = " . $_GET['UserID'];
+    $returnInformation = true;
+}
+
 if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name']))
 {
     $value1 = $_POST['email'];
@@ -51,6 +57,15 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name']))
     pg_query($con, $UserIDSequence);
 
     $statement = "INSERT INTO Public.\"User\" (\"UserID\", \"Password\", \"Email\", \"Name\") VALUES (nextval('uniqueID'), '{$value2}', '{$value1}', '{$value3}')";
+}
+
+if(isset($_POST['loginEmail']) && isset($_POST['password']))
+{
+    $value1 = $_POST['loginEmail'];
+    $value2 = $_POST['password'];
+
+    $statement = "SELECT * FROM Public.\"User\" WHERE \"Email\" = '{$value1}' AND \"Password\" = '{$value2}'";
+    $returnInformation = true;
 }
 
 if($action === 'getartbyartist')

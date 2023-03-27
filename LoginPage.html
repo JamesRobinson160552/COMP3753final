@@ -39,18 +39,20 @@
                         <h2 class = "title">Login</h2>
                     <!-- <div class = "form-message form-messgae-error">Incorrect username or password</div>-->
                         <div class="form-input"> 
-                            <input class = "form-input" type = "text" name = "" autofocus placeholder = "Enter email address">
+                            <input class = "form-input" type = "text" id = "email" name = "" autofocus placeholder = "Enter email address">
                         </div>
                         <div class="form-input"> 
                             <!--<div class="input-err-message">Account does not exist. Please sign up for an account</div>-->
-                            <input class = "form-input" type = "password" name = "" placeholder = "Enter your password">
+                            <input class = "form-input" type = "password" id = "password" name = "" placeholder = "Enter your password">
                         </div>
         
                         <div class="rem-forgot">
                             <label><input type = "checkbox">Remember me</label>
                             <a href="" class="forget">Forgot your password?</a>
                         </div>
-                        <button type = "Submit" class = "btn"><a href = "./Sparrow.html">Login</a></button>
+                        <!---<button type = "Submit" class = "btn"><a href = "./Sparrow.html">Login</a></button>-->
+                        <button type = "Button" class = "btn" onclick="Login()">Login</button>
+
         
                         <div class="login-register">
                             <p>Don't have an account? <a href = "./SignUpPage.html" class = "register-link">Register</a></p>
