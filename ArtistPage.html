@@ -22,7 +22,7 @@
         <script src="script.js"></script>
     </head>
 
-    <body onload="GetArtByArtist(1)">
+    <body onload="GetArtByCurrentUser()">
         <header>
             <a href = "" class = "logo"><img src = "logo.png" alt = ""></a>
             <ul class = "navigation">
@@ -45,8 +45,8 @@
         <section class = "main-home">
             <div class="main-text">
                 <h5>Your Art</h5>
-            </div>
-            <div class="products" id="artistArt">
+                <div class="products" id="uploadedArt">
+                </div>
             </div>
         </section>
     </body>
