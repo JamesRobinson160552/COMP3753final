@@ -28,8 +28,6 @@ function Data() {
         html_string += "</div></div>"
     
         });
-        //onStorage.setItem('art', );
-        //set the HTML string on the client
         $("#featured").html(html_string);
 
     });
@@ -105,4 +103,31 @@ function CreateUser()
     xhr.open('POST', 'server.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.send('email=' + encodeURIComponent(email) + '&password=' + encodeURIComponent(password) + '&name=' + encodeURIComponent(name));
+}
+
+function GetArtByArtist($artist)
+{
+    $.get("server.php?action=getartbyartist&artist=" + $artist, function(data)  
+    {
+        var html_string = "";
+            
+        $(data).each(function(key, object) {
+
+        html_string += "<div class=\"row\">"
+        html_string += "<a onclick=\"ViewItemPage(" + object['ArtID'] +","+ object['MediumID'] + "); return false;\">"
+        html_string += "<img src = \"im.jpeg\" alt = \"\"></a>"
+        html_string += "<div class=\"product-text\">"
+        html_string += "<h5>"+object['Title']+"</h5>"
+        html_string += "</div>"
+        html_string += "<div class=\"likes\">"
+        html_string += "<i class='bx bxs-heart'></i>"
+        html_string += "</div>"
+        html_string += "<div class=\"price\">"
+        html_string += "<p>"+object['Price']+"</p>"
+        html_string += "</div></div>"
+    
+        });
+        $("#artistArt").html(html_string);
+
+    });
 }

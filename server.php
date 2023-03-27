@@ -53,6 +53,12 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name']))
     $statement = "INSERT INTO Public.\"User\" (\"UserID\", \"Password\", \"Email\", \"Name\") VALUES (nextval('uniqueID'), '{$value2}', '{$value1}', '{$value3}')";
 }
 
+if($action === 'getartbyartist')
+{
+    $statement = "SELECT * FROM (Public.\"Art\" NATURAL JOIN Public.\"Artist\" art) WHERE \"UserID\" = " . $_GET['artist'];
+    $returnInformation = true;
+}
+
 $result = pg_query($con, $statement); //all information is given to $result
 
 header('Content-Type: application/json; charset=utf-8');
