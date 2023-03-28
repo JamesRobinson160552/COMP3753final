@@ -197,33 +197,22 @@ function GetArtByCurrentUser()
     $.get("server.php?action=getartbyartist&artist=" + sessionStorage.getItem('loggedInUser'), function(data)  
     {
         var html_string = "";
-            
-        if (data !== null)
-        {
-            $(data).each(function(key, object) {
-
-            html_string += "<div class=\"row\">"
-            html_string += "<a onclick=\"ViewItemPage(" + object['ArtID'] +","+ object['MediumID'] + "); return false;\">"
-            html_string += "<img src = \"im.jpeg\" alt = \"\"></a>"
-            html_string += "<div class=\"product-text\">"
-            html_string += "<h5>"+object['Title']+"</h5>"
-            html_string += "</div>"
-            html_string += "<div class=\"likes\">"
-            html_string += "<i class='bx bxs-heart'></i>"
-            html_string += "</div>"
-            html_string += "<div class=\"price\">"
-            html_string += "<p>"+object['Price']+"</p>"
-            html_string += "</div></div>"
         
-            });
-        }
-
-        else 
-        {
-            html_string += "<h4>You have not uploaded any art yet!</h4>"
-        }
-
-        $("#uploadedtArt").html(html_string);
-
+        $(data).each(function(key, object) {
+        html_string += "<div class=\"row\">"
+        html_string += "<a onclick=\"ViewItemPage(" + object['ArtID'] +","+ object['MediumID'] + "); return false;\">"
+        html_string += "<img src = \"im.jpeg\" alt = \"\"></a>"
+        html_string += "<div class=\"product-text\">"
+        html_string += "<h5>"+object['Title']+"</h5>"
+        html_string += "</div>"
+        html_string += "<div class=\"likes\">"
+        html_string += "<i class='bx bxs-heart'></i>"
+        html_string += "</div>"
+        html_string += "<div class=\"price\">"
+        html_string += "<p>"+object['Price']+"</p>"
+        html_string += "</div></div>"
+    
+        });
+        $("#uploadedArt").html(html_string);
     });
 }
