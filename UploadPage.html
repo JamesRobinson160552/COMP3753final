@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Fasthand&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel = "stylesheet" href = "Sparrow.css">
+        <script src = "Sparrow.js"></script>
         <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
         <!-- IMPORTS FROM JAMIE -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -22,25 +23,27 @@
         <script src="script.js"></script>
     </head>
 
-    <body onload="GetArtByCurrentUser()">
-        <header>
-            <a href = "" class = "logo"><img src = "logo.png" alt = ""></a>
-            <ul class = "navigation">
-                <li><a href = "./Sparrow.html">Home</a></li>
-                <li><a href = "./ProfilePage.html">Account</a></li>
-                <li><a href = "./SignUpPage.html">Become A Seller</a></li>
-                <li><a href = "./ExplorePage.html">Find A Piece</a></li>
-                <li><a href = "./ArtistPage.html">Artist Hub</a></li>
-            </ul>
-        </header>
-
-        <section class = "main-home">
-            <div class="main-text">
-                <h5>Your Art</h5>
-                <a href='./UploadPage.html'><button id="uploadButton">Upload</button></a>
-                <div class="products" id="uploadedArt">
-                </div>
-            </div>
-        </section>
+    <body>
+        <div id="header">
+            <h4>Share Your Masterpiece!</h4>
+        </div>
+        <div id="upload"> <!--Get Values Using These IDs-->
+            <p>
+            Title: <input type="text" id="title"><br>
+            Description: <input type="text" id="description"><br>
+            Material: <input type="text" id="material"><br>
+            Height: <input type="text" id="height"><br>
+            Width: <input type="text" id="width"><br>
+            Location: <table>
+                <tr>
+                    <td>City</td><td><input type="text" id="cty"></td>
+                    <td>Address</td><td><input type="text" id="address"></td>
+                    <td>Postal Code</td><td><input type="text" id="postal"></td>
+                </tr>
+            </table><br>
+            Price: <input type="text" id="price"><br>
+            <button onclick="CreateArt()" id="submitButton">Submit</button>
+            <a href="./Sparrow.html"><button id="backButton">Back</button></a>
+            </p>
+        </div>
     </body>
-</html>
