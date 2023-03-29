@@ -85,27 +85,42 @@ if(isset($_POST['city']) && isset($_POST['postal']) && isset($_POST['street']) &
     $statement .= "WHERE \"UserID\" = '{$value4}'";
 }
 
-if(isset($_POST['size']) && isset($_POST['material']))
-{
-    $value1 = $_POST['size'];
-    $value2 = $_POST['material'];
+//if(isset($_POST['size']) && isset($_POST['material']))
+//{
+//    $value1 = $_POST['size'];
+//    $value2 = $_POST['material'];
 
-    $UserIDSequence = "CREATE SEQUENCE uniqueIDMedium INCREMENT 1 START 2;";
-    pg_query($con, $UserIDSequence);
+//    $UserIDSequence = "CREATE SEQUENCE uniqueIDMedium INCREMENT 1 START 2;";
+//    pg_query($con, $UserIDSequence);
 
-    $statement = "INSERT INTO Public.\"Medium\" (\"MediumID\", \"Size\", \"Material\") VALUES (nextval('uniqueID'), '{$value1}', '{$value2}')";
-}
+//    $statement = "INSERT INTO Public.\"Medium\" (\"MediumID\", \"Size\", \"Material\") VALUES (nextval('uniqueID'), '{$value1}', '{$value2}')";
+//}
 
 //artid,title,desc,date,userid,artistid,mediumid,locationid,price
-if(isset($_POST['size']) && isset($_POST['material']))
+if(isset($_POST['title']) && isset($_POST['desc']) && isset($_POST['date']) && isset($_POST['price']) && isset($_POST['userID']) && isset($_POST['material']) && isset($_POST['length']) && isset($_POST['height']))
 {
-    $value1 = $_POST['size'];
-    $value2 = $_POST['material'];
+    $value1 = $_POST['title'];
+    $value2 = $_POST['desc'];
+    $value3 = $_POST['date'];
+    $value4 = $_POST['userID'];
+    //$value5 = $_POST['locationID'];
+    $value6 = $_POST['price'];
+    $value7 = $_POST['length'];
+    $value8 = $_POST['height'];
+    $value9 = $_POST['material'];
 
-    $UserIDSequence = "CREATE SEQUENCE uniqueIDMedium INCREMENT 1 START 2;";
+    $ArtIDSequence = "CREATE SEQUENCE uniqueIDArt INCREMENT 1 START 110;";
+    pg_query($con, $ArtIDSequence);
+
+    $UserIDSequence = "CREATE SEQUENCE uniqueIDMed INCREMENT 1 START 11;";
     pg_query($con, $UserIDSequence);
 
-    $statement = "INSERT INTO Public.\"Medium\" (\"MediumID\", \"Size\", \"Material\") VALUES (nextval('uniqueID'), '{$value1}', '{$value2}')";
+    $statement = "INSERT INTO Public.\"Medium\" (\"MediumID\", \"Size\", \"Material\") VALUES (nextval('uniqueIDMed'), ARRAY['{$value7}', '{$value8}']::int[], '{$value9}')";
+    pg_query($con, $statement);
+
+    $statement = "INSERT INTO Public.\"Art\" (\"ArtID\", \"Title\", \"Description\", \"Date\", \"UserID\", \"ArtistID\", \"MediumID\", \"LocationID\", \"Price\") ";
+    $statement .= "SELECT nextval('uniqueIDArt'), '{$value1}', '{$value2}', '{$value3}',  '{$value4}', '{$value4}', currval('uniqueIDMed'), \"LocationID\", '{$value6}'  FROM Public.\"Artist\" ";
+    $statement .= "WHERE \"UserID\" = '{$value4}'";
 }
 
 if(isset($_POST['loginEmail']) && isset($_POST['password']))

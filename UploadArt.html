@@ -34,22 +34,31 @@
 
         <div class="container">
             <div class="registration">
-                <form action = "" id = "register">
-                    <h2 class = "title">Register</h2>
+                <form action = "" id = "upload">
+                    <h2 class = "title">Upload</h2>
                     <div class="form-input"> 
-                        <input class = "form-input" id="email" type = "text" name = "" autofocus placeholder = "Enter Art Title">
+                        <input class = "form-input" id="title" type = "text" name = "" autofocus placeholder = "Enter Art Title">
                     </div>
                     <div class="form-input"> 
-                        <input class = "form-input" id="name" type = "text" name = "" autofocus placeholder = "Enter the Description">
+                        <input class = "form-input" id="desc" type = "text" name = "" autofocus placeholder = "Enter the Description">
                     </div>
                     <div class="form-input"> 
-                        <input class = "form-input" id="password" type = "password" name = "" placeholder = "Enter the Date">
+                        <input class = "form-input" id="date" type = "text" name = "" placeholder = "Enter the Date - MM/DD/YYYY">
                     </div>
                     <div class="form-input"> 
-                        <input class = "form-input" id="password1" type = "password" name = "" placeholder = "Enter the Price">
+                        <input class = "form-input" id="price" type = "text" name = "" placeholder = "Enter the Price">
+                    </div>
+                    <div class="form-input"> 
+                        <input class = "form-input" id="material" type = "text" name = "" placeholder = "Enter the Material">
+                    </div>
+                    <div class="form-input"> 
+                        <input class = "form-input" id="length" type = "text" name = "" placeholder = "Enter the Length">
+                    </div>
+                    <div class="form-input"> 
+                        <input class = "form-input" id="height" type = "text" name = "" placeholder = "Enter the Height">
                     </div>
                     <!---<button type = "Submit" class = "btn"><a href = "./Sparrow.html">Register</a></button>-->
-                    <button type = "Submit" class = "btn"><a onclick="CreateUser()">Register</a></button>
+                    <button type = "Button" class = "btn"><a onclick="UploadArt()">Submit</a></button>
                 </form>
             </div>
         </div>

@@ -193,6 +193,40 @@ function BecomeArtist()
     goToSparrow();
 }
 
+function UploadArt()
+{
+    var placeholder = sessionStorage.getItem('loggedInUser')
+    sessionStorage.setItem('loggedInUser', "")
+    var title = document.getElementById('title').value;
+    var desc = document.getElementById('desc').value;
+    var date = document.getElementById('date').value;
+    var price = document.getElementById('price').value;
+    var material = document.getElementById('material').value;
+    var height = document.getElementById('height').value;
+    var length = document.getElementById('length').value;
+    var responseText
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'server.php?action=none', true);
+    xhr.responseType = 'text';
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send('title=' + encodeURIComponent(title) + '&desc=' + encodeURIComponent(desc) + '&date=' + encodeURIComponent(date) + '&price=' + encodeURIComponent(price) + '&userID=' + encodeURIComponent(placeholder) + '&material=' + encodeURIComponent(material) + '&length=' + encodeURIComponent(length) + '&height=' + encodeURIComponent(height));
+    console.log('title=' + encodeURIComponent(title) + '&desc=' + encodeURIComponent(desc) + '&date=' + encodeURIComponent(date) + '&price=' + encodeURIComponent(price) + '&userID=' + encodeURIComponent(placeholder) + '&material=' + encodeURIComponent(material) + '&length=' + encodeURIComponent(length) + '&height=' + encodeURIComponent(height));
+
+    xhr.addEventListener('load', function() {
+        if (xhr.status === 200) {
+            // Handle the response from the server
+            responseText = xhr.responseText;
+            console.log(responseText);
+            sessionStorage.setItem('loggedInUser', placeholder)
+        } else {
+            console.log('Error: ' + xhr.status); // log any errors to the console
+        }
+    });
+
+    goToSparrow();
+}
+
 
 //We can reuse this for search by artist or delete later if we want
 function GetArtByArtist($artist)
