@@ -35,6 +35,13 @@ if ($action === 'productMedium') //gets all customer data from customer table
     $returnInformation = true;
 }
 
+if ($action === 'productLocation') //gets all customer data from customer table
+{
+    //$statement = "SELECT * FROM Public.\"Medium\"";
+    $statement = "SELECT * FROM Public.\"Location\" WHERE \"LocationID\" = " . $_GET['LocationID'];
+    $returnInformation = true;
+}
+
 if($action === 'productInfo')
 {
     $statement = "SELECT * FROM Public.\"Art\" NATURAL JOIN Public.\"Artist\" art WHERE \"ArtID\" = " . $_GET['ArtID'];

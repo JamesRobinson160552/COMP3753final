@@ -28,7 +28,7 @@ function Data() {
         //html_string+="<tr><td>" + object['MediumID'] +"</td><td>"+ object['Size'] +"</td><td>"+ object['Material'] +"</td></tr>";
         //html_string+="<tr><td>" + object['Title'] +"</td><td>"+ object['Price'] +"</td></tr>";
         html_string += "<div class=\"row\">"
-        html_string += "<a onclick=\"ViewItemPage(" + object['ArtID'] +","+ object['MediumID'] + "); return false;\">"
+        html_string += "<a onclick=\"ViewItemPage(" + object['ArtID'] +","+ object['MediumID']+","+ object['LocationID']+ "); return false;\">"
         html_string += "<img src = \"im.jpeg\" alt = \"\"></a>"
         html_string += "<div class=\"product-text\">"
         html_string += "<h5>"+object['Title']+"</h5>"
@@ -46,10 +46,11 @@ function Data() {
     });
 }
 
-function ViewItemPage(ArtID, MediumID)
+function ViewItemPage(ArtID, MediumID, LocationID)
 {
     sessionStorage.setItem('art', "");
     sessionStorage.setItem('medium', "");
+    sessionStorage.setItem('location', "");
     
     //window.location.href("./ProductPage.html");
     console.log(ArtID);
@@ -84,6 +85,17 @@ function ViewItemPage(ArtID, MediumID)
         console.log(html_string);
         sessionStorage.setItem('medium', html_string)
     });
+
+    $.get("server.php?action=productLocation&LocationID=" + LocationID, function(data) {
+        var html_string = "";
+        //html_string += "<div class=\"row\">"
+        html_string += "<div class=\"mediumText\">"
+        html_string += "<h5> This piece is stored in "+data[0]['City']+"</h5>"
+        //html_string += "<p>"+data[0]['Material']+"</p>"
+        html_string += "</div>"
+        console.log(html_string);
+        sessionStorage.setItem('location', html_string)
+    });
     //console.log((sessionStorage.getItem('art')));
     //console.log((sessionStorage.getItem('medium')));
 
@@ -91,7 +103,7 @@ function ViewItemPage(ArtID, MediumID)
 }
 
 function waitForChange(){
-    if((sessionStorage.getItem('art') === "") || (sessionStorage.getItem('medium') === ""))
+    if((sessionStorage.getItem('art') === "") || (sessionStorage.getItem('medium') === "") || (sessionStorage.getItem('location') === ""))
     {
         setTimeout(waitForChange, 50);
         return;
@@ -103,6 +115,7 @@ function LoadViewPage()
 {
     $("#featured1").html((sessionStorage.getItem('art')));
     $("#featured2").html((sessionStorage.getItem('medium')));
+    $("#featured3").html((sessionStorage.getItem('location')));
     //sessionStorage.setItem('art', "");
 }
 
