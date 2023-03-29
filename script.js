@@ -230,4 +230,5 @@ function DeleteArt(artID)
         type: 'DELETE',
         success: console.log("Success!")
     });
+    window.location.reload();
 }

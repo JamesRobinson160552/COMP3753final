@@ -49,7 +49,8 @@ if($action === 'getUser')
 
 if($action === 'deleteart')
 {
-    $statement = "DELETE * FROM Public.\"Art\" WHERE \"ArtID\" = " . $_GET['artid'];
+    //$statement = "DELETE * FROM Public.\"Art\" WHERE \"ArtID\" = " . $_GET['artid'];
+    $statement = "DELETE FROM Public.\"Art\" WHERE \"ArtID\" = " . $_GET['artid'];
     $returnInformation = true;
 }
 
