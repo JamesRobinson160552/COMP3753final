@@ -198,6 +198,10 @@ function GetArtByCurrentUser()
     {
         var html_string = "";
         
+        if (data === null)
+        {
+            html_string = "<h3>You have no art posted<h3>"
+        }
         $(data).each(function(key, object) {
         html_string += "<div class=\"row\">"
         html_string += "<a onclick=\"ViewItemPage(" + object['ArtID'] +","+ object['MediumID'] + "); return false;\">"
@@ -210,9 +214,20 @@ function GetArtByCurrentUser()
         html_string += "</div>"
         html_string += "<div class=\"price\">"
         html_string += "<p>"+object['Price']+"</p>"
+        html_string += "<button onclick=\"DeleteArt(" + object['ArtID'] + ")\">DELETE</button>"
         html_string += "</div></div>"
     
         });
         $("#uploadedArt").html(html_string);
+    });
+}
+
+function DeleteArt(artID)
+{
+    console.log("Called Delete")
+    $.ajax({
+        url: "server.php?action=deleteart&artid=" + artID,
+        type: 'DELETE',
+        success: console.log("Success!")
     });
 }

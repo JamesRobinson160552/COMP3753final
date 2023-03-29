@@ -47,6 +47,12 @@ if($action === 'getUser')
     $returnInformation = true;
 }
 
+if($action === 'deleteart')
+{
+    $statement = "DELETE * FROM Public.\"Art\" WHERE \"ArtID\" = " . $_GET['artid'];
+    $returnInformation = true;
+}
+
 if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name']))
 {
     $value1 = $_POST['email'];
@@ -81,6 +87,7 @@ if(isset($_POST['size']) && isset($_POST['material']))
 
     $statement = "INSERT INTO Public.\"Medium\" (\"MediumID\", \"Size\", \"Material\") VALUES (nextval('uniqueID'), '{$value1}', '{$value2}')";
 }
+
 //artid,title,desc,date,userid,artistid,mediumid,locationid,price
 if(isset($_POST['size']) && isset($_POST['material']))
 {
