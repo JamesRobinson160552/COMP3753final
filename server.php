@@ -67,21 +67,21 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name']))
     $statement = "INSERT INTO Public.\"User\" (\"UserID\", \"Password\", \"Email\", \"Name\") VALUES (nextval('uniqueID'), '{$value2}', '{$value1}', '{$value3}')";
 }
 
-if(isset($_POST['city']) && isset($_POST['postal']) && isset($_POST['street']))
+if(isset($_POST['city']) && isset($_POST['postal']) && isset($_POST['street']) && isset($_POST['userID']))
 {
     $value1 = $_POST['city'];
     $value2 = $_POST['postal'];
     $value3 = $_POST['street'];
     $value4 = $_POST['userID'];
 
-    $UserIDSequence = "CREATE SEQUENCE uniqueIDLocation INCREMENT 1 START 30;";
+    $UserIDSequence = "CREATE SEQUENCE uniqueIDLoc INCREMENT 1 START 30;";
     pg_query($con, $UserIDSequence);
 
-    $statement = "INSERT INTO Public.\"Location\" (\"LocationID\", \"City\", \"Postal\", \"Street\") VALUES (nextval('uniqueIDLocation'), '{$value1}', '{$value2}', '{$value3}')";
+    $statement = "INSERT INTO Public.\"Location\" (\"LocationID\", \"City\", \"Postal\", \"Street\") VALUES (nextval('uniqueIDLoc'), '{$value1}', '{$value2}', '{$value3}')";
     pg_query($con, $statement);
 
     $statement = "INSERT INTO Public.\"Artist\" (\"UserID\", \"Password\", \"Email\", \"Name\", \"Quantity Sold\", \"LocationID\") ";
-    $statement .= "SELECT \"UserID\", \"Password\", \"Email\", \"Name\", 0, currval('uniqueIDLocation') FROM Public.\"User\" ";
+    $statement .= "SELECT \"UserID\", \"Password\", \"Email\", \"Name\", 0, currval('uniqueIDLoc') FROM Public.\"User\" ";
     $statement .= "WHERE \"UserID\" = '{$value4}'";
 }
 

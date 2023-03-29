@@ -190,7 +190,7 @@ function BecomeArtist()
         }
     });
 
-    //goToSparrow();
+    goToSparrow();
 }
 
 
