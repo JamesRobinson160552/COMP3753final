@@ -59,6 +59,40 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name']))
     $statement = "INSERT INTO Public.\"User\" (\"UserID\", \"Password\", \"Email\", \"Name\") VALUES (nextval('uniqueID'), '{$value2}', '{$value1}', '{$value3}')";
 }
 
+if(isset($_POST['city']) && isset($_POST['postal']) && isset($_POST['street']))
+{
+    $value1 = $_POST['city'];
+    $value2 = $_POST['postal'];
+    $value3 = $_POST['street'];
+
+    $UserIDSequence = "CREATE SEQUENCE uniqueIDLocation INCREMENT 1 START 2;";
+    pg_query($con, $UserIDSequence);
+
+    $statement = "INSERT INTO Public.\"Location\" (\"UserID\", \"City\", \"Postal\", \"Street\") VALUES (nextval('uniqueID'), '{$value1}', '{$value2}', '{$value3}')";
+}
+
+if(isset($_POST['size']) && isset($_POST['material']))
+{
+    $value1 = $_POST['size'];
+    $value2 = $_POST['material'];
+
+    $UserIDSequence = "CREATE SEQUENCE uniqueIDMedium INCREMENT 1 START 2;";
+    pg_query($con, $UserIDSequence);
+
+    $statement = "INSERT INTO Public.\"Medium\" (\"MediumID\", \"Size\", \"Material\") VALUES (nextval('uniqueID'), '{$value1}', '{$value2}')";
+}
+//artid,title,desc,date,userid,artistid,mediumid,locationid,price
+if(isset($_POST['size']) && isset($_POST['material']))
+{
+    $value1 = $_POST['size'];
+    $value2 = $_POST['material'];
+
+    $UserIDSequence = "CREATE SEQUENCE uniqueIDMedium INCREMENT 1 START 2;";
+    pg_query($con, $UserIDSequence);
+
+    $statement = "INSERT INTO Public.\"Medium\" (\"MediumID\", \"Size\", \"Material\") VALUES (nextval('uniqueID'), '{$value1}', '{$value2}')";
+}
+
 if(isset($_POST['loginEmail']) && isset($_POST['password']))
 {
     $value1 = $_POST['loginEmail'];
