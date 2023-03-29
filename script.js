@@ -163,6 +163,36 @@ function goToSparrow()
     window.location.href = "./Sparrow.html";
 }
 
+function BecomeArtist()
+{
+    var placeholder = sessionStorage.getItem('loggedInUser')
+    sessionStorage.setItem('loggedInUser', "")
+    var city = document.getElementById('city').value;
+    var postal = document.getElementById('postal').value;
+    var street = document.getElementById('street').value;
+    var responseText
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'server.php?action=none', true);
+    xhr.responseType = 'text';
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send('city=' + encodeURIComponent(city) + '&postal=' + encodeURIComponent(postal) + '&street=' + encodeURIComponent(street) + '&userID=' + encodeURIComponent(placeholder));
+    //console.log('loginEmail=' + encodeURIComponent(loginEmail) + '&password=' + encodeURIComponent(password))
+
+    xhr.addEventListener('load', function() {
+        if (xhr.status === 200) {
+            // Handle the response from the server
+            responseText = xhr.responseText;
+            console.log(responseText);
+            sessionStorage.setItem('loggedInUser', placeholder)
+        } else {
+            console.log('Error: ' + xhr.status); // log any errors to the console
+        }
+    });
+
+    //goToSparrow();
+}
+
 
 //We can reuse this for search by artist or delete later if we want
 function GetArtByArtist($artist)

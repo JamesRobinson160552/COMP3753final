@@ -47,6 +47,7 @@ if($action === 'getUser')
     $returnInformation = true;
 }
 
+
 if($action === 'deleteart')
 {
     //$statement = "DELETE * FROM Public.\"Art\" WHERE \"ArtID\" = " . $_GET['artid'];
@@ -71,11 +72,17 @@ if(isset($_POST['city']) && isset($_POST['postal']) && isset($_POST['street']))
     $value1 = $_POST['city'];
     $value2 = $_POST['postal'];
     $value3 = $_POST['street'];
+    $value4 = $_POST['userID'];
 
-    $UserIDSequence = "CREATE SEQUENCE uniqueIDLocation INCREMENT 1 START 2;";
+    $UserIDSequence = "CREATE SEQUENCE uniqueIDLocation INCREMENT 1 START 30;";
     pg_query($con, $UserIDSequence);
 
-    $statement = "INSERT INTO Public.\"Location\" (\"UserID\", \"City\", \"Postal\", \"Street\") VALUES (nextval('uniqueID'), '{$value1}', '{$value2}', '{$value3}')";
+    $statement = "INSERT INTO Public.\"Location\" (\"LocationID\", \"City\", \"Postal\", \"Street\") VALUES (nextval('uniqueIDLocation'), '{$value1}', '{$value2}', '{$value3}')";
+    pg_query($con, $statement);
+
+    $statement = "INSERT INTO Public.\"Artist\" (\"UserID\", \"Password\", \"Email\", \"Name\", \"Quantity Sold\", \"LocationID\") ";
+    $statement .= "SELECT \"UserID\", \"Password\", \"Email\", \"Name\", 0, currval('uniqueIDLocation') FROM Public.\"User\" ";
+    $statement .= "WHERE \"UserID\" = '{$value4}'";
 }
 
 if(isset($_POST['size']) && isset($_POST['material']))
