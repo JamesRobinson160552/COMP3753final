@@ -145,6 +145,13 @@ if($action === 'getartbyartist')
     $returnInformation = true;
 }
 
+if ($action === 'getsearch') 
+{
+    $filter = $_GET['filter'];
+    $statement = "SELECT * FROM (Public.\"Art\" NATURAL JOIN Public.\"Artist\" NATURAL JOIN Public.\"Location\" NATURAL JOIN Public.\"Medium\") WHERE \"Title\" = '{$filter}' OR \"Name\" = '{$filter}' OR \"City\" = '{$filter}' OR \"Material\" = '{$filter}'";
+    $returnInformation = true;
+}
+
 $result = pg_query($con, $statement); //all information is given to $result
 
 header('Content-Type: application/json; charset=utf-8');
