@@ -130,10 +130,17 @@ function CreateUser()
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.send('email=' + encodeURIComponent(email) + '&password=' + encodeURIComponent(password) + '&name=' + encodeURIComponent(name));
 
-   if(email !== null && password !== null && name !== null)
-   {
-        window.location.href = "./LoginPage.html";
-   }
+    if(email !== "" && password !== "" && name !== "")
+    {
+        console.log("looks good");
+        location.replace("./Sparrow.html");
+    }
+
+    else
+    {
+        console.log("looks not good");
+        alert("Oops! Make sure you fill in all the fields");
+    }
 }
 
 function Login()
@@ -275,7 +282,7 @@ function GetArtByCurrentUser()
     {
         var html_string = "";
         
-        if (data === null)
+        if (!data)
         {
             html_string = "<h3>You have no art posted<h3>"
         }
@@ -308,4 +315,35 @@ function DeleteArt(artID)
         success: console.log("Success!")
     });
     window.location.reload();
+}
+
+function GetSearch()
+{
+    query = document.getElementById("searchval").value;
+    sessionStorage.setItem('query', query);
+}
+
+function GetArtByFilter() 
+{
+    input = sessionStorage.getItem('query');
+    $.get("server.php?action=getsearch&filter=" + input, function(data)  
+    {
+        var html_string = "<p>Test</p>";
+        
+        $(data).each(function(key, object) {
+            html_string += "<div class=\"row\">"
+            html_string += "<a onclick=\"ViewItemPage(" + object['ArtID'] +","+ object['MediumID']+","+ object['LocationID']+ "); return false;\">"
+            html_string += "<img src = \"im.jpeg\" alt = \"\"></a>"
+            html_string += "<div class=\"product-text\">"
+            html_string += "<h5>"+object['Title']+"</h5>"
+            html_string += "</div>"
+            html_string += "<div class=\"likes\">"
+            html_string += "<i class='bx bxs-heart'></i>"
+            html_string += "</div>"
+            html_string += "<div class=\"price\">"
+            html_string += "<p>"+object['Price']+"</p>"
+            html_string += "</div></div>"
+        });
+        $("#searchResults").html(html_string);
+    });
 }
